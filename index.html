@@ -28,18 +28,52 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero animate-fade-in">
         <h1>Potencia tu vida, tus finanzas y tu creatividad</h1>
         <p>Aprende de expertos en crecimiento personal, finanzas inteligentes, marketing digital y fotografía profesional para transformar tu futuro.</p>
         <a href="#cursos" class="btn-primary">Explorar Cursos</a>
     </section>
 
+    <!-- Sección de Beneficios -->
+    <section id="beneficios" class="benefits-section">
+        <h2 class="section-title">¿Por qué elegir Libertademi?</h2>
+        <p class="section-subtitle">Diseñamos una experiencia de aprendizaje pensada para dar resultados reales en tu día a día.</p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎓</div>
+                <h3>Instructores Expertos</h3>
+                <p>Aprende directamente de profesionales activos con años de experiencia comprobada en el mundo real.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Acceso Inmediato y Flexible</h3>
+                <p>Estudia a tu propio ritmo, desde cualquier dispositivo y con acceso disponible las 24 horas del día.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🛠️</div>
+                <h3>Enfoque 100% Práctico</h3>
+                <p>Menos teoría aburrida y más proyectos aplicados que podrás implementar desde el primer día.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3>Comunidad Exclusiva</h3>
+                <p>Conecta con otros estudiantes, comparte ideas, haz networking y crece junto a una red de apoyo activa.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="cursos" class="courses-section">
-        <h2>Nuestros Programas Destacados</h2>
+        <h2 class="section-title">Nuestros Programas Destacados</h2>
+        <p class="section-subtitle">Elige el área que deseas dominar y comienza tu transformación hoy mismo.</p>
+        
         <div class="courses-grid">
             
-            <!-- Tarjeta 1: Crecimiento Personal -->
-            <div class="course-card" 
+            <!-- Tarjeta 1: Crecimiento Personal (crecimiento.png) -->
+            <div class="course-card animate-on-scroll" 
                  data-curso="Crecimiento Personal y Mentalidad" 
                  data-precio="$49 USD"
                  data-duracion="4 semanas (8 clases)"
@@ -61,8 +95,8 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 2: Finanzas Personales -->
-            <div class="course-card" 
+            <!-- Tarjeta 2: Finanzas Personales (finanzas.png) -->
+            <div class="course-card animate-on-scroll" 
                  data-curso="Finanzas Personales e Inversiones" 
                  data-precio="$79 USD"
                  data-duracion="6 semanas (12 clases)"
@@ -84,8 +118,8 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 3: Marketing Digital -->
-            <div class="course-card" 
+            <!-- Tarjeta 3: Marketing Digital (marketing.jpeg) -->
+            <div class="course-card animate-on-scroll" 
                  data-curso="Marketing Digital y Redes Sociales" 
                  data-precio="$59 USD"
                  data-duracion="5 semanas (10 clases)"
@@ -107,8 +141,8 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 4: Fotografía Profesional -->
-            <div class="course-card" 
+            <!-- Tarjeta 4: Fotografía Profesional (fotografia.png) -->
+            <div class="course-card animate-on-scroll" 
                  data-curso="Fotografía Profesional y Edición" 
                  data-precio="$69 USD"
                  data-duracion="4 semanas (8 clases)"
@@ -133,7 +167,7 @@
         </div>
     </section>
 
-      <!-- Pie de Página (Footer) con Enlaces Legales -->
+    <!-- Pie de Página (Footer) -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -151,7 +185,7 @@
         </div>
     </footer>
 
-    <!-- Modal de Detalles del Curso (Especificaciones) -->
+    <!-- Modales -->
     <div id="course-modal" class="modal-overlay">
         <div class="modal-content">
             <button id="modal-close" class="modal-close">&times;</button>
@@ -170,7 +204,6 @@
         </div>
     </div>
 
-    <!-- Modal para ver la Imagen en Grande -->
     <div id="img-modal" class="modal-overlay">
         <div class="modal-content">
             <button id="img-modal-close" class="modal-close">&times;</button>
@@ -178,11 +211,10 @@
         </div>
     </div>
 
-    <!-- Modal Flotante de Registro Propio -->
     <div id="auth-modal" class="modal-overlay">
         <div class="modal-content auth-box">
             <button id="auth-close" class="modal-close">&times;</button>
-            <h2>Únete a Libertudemi</h2>
+            <h2>Únete a Libertademi</h2>
             <p class="modal-text">Crea tu cuenta con tu correo para acceder a la academia.</p>
             
             <form id="form-registro" class="auth-form" style="margin-top: 20px;">
@@ -198,5 +230,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
