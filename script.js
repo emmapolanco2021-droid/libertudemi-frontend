@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mensajeRespuesta.textContent = "Conectando con el servidor...";
 
             try {
-                const respuesta = await fetch("http://127.0.0.1:5000/api/registro", {
+              const respuesta = await fetch("https://tu-backend-en-render.onrender.com/api/registro", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ nombre, correo, password })
