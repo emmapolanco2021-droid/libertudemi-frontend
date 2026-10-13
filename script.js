@@ -171,4 +171,78 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    // --- Lógica para los Modales Legales y de Contacto ---
+    const legalModal = document.getElementById("legal-modal");
+    const legalClose = document.getElementById("legal-close");
+    const legalTitle = document.getElementById("legal-title");
+    const legalBody = document.getElementById("legal-body");
+
+    const linkTerminos = document.getElementById("link-terminos");
+    const linkPrivacidad = document.getElementById("link-privacidad");
+    const linkAviso = document.getElementById("link-aviso");
+    const linkContacto = document.getElementById("link-contacto");
+
+    const contenidoLegal = {
+        terminos: {
+            titulo: "Términos y Condiciones",
+            html: `
+                <p>Bienvenido a <strong>Libertudemi</strong>. Al acceder y utilizar nuestra plataforma web y nuestros programas educativos, aceptas cumplir con los siguientes términos y condiciones de uso.</p>
+                <p><strong>1. Uso de la plataforma:</strong> Los cursos adquiridos son para uso personal e individual del estudiante. Queda prohibida la reventa, distribución o reproducción no autorizada del contenido.</p>
+                <p><strong>2. Inscripciones y Pagos:</strong> Las transacciones se realizan mediante los canales habilitados y confirmados oficialmente. Una vez procesada la inscripción, se otorga acceso al programa correspondiente.</p>
+                <p><strong>3. Modificaciones:</strong> Libertademi se reserva el derecho de actualizar o modificar los temarios y condiciones de servicio en cualquier momento para mejorar la calidad académica.</p>
+            `
+        },
+        privacidad: {
+            titulo: "Política de Privacidad",
+            html: `
+                <p>En <strong>Libertudemi</strong> valoramos y protegemos la privacidad de nuestros usuarios y estudiantes.</p>
+                <p><strong>1. Información recopilada:</strong> Recopilamos datos básicos de registro (nombre y correo electrónico) facilitados voluntariamente por el usuario para gestionar el acceso a la academia.</p>
+                <p><strong>2. Uso de los datos:</strong> Los datos proporcionados se utilizan exclusivamente para fines académicos, confirmación de cuentas y notificaciones importantes del servicio. Nunca compartimos tu información con terceros con fines comerciales.</p>
+                <p><strong>3. Seguridad:</strong> Implementamos medidas de seguridad para proteger la información personal almacenada en nuestros sistemas.</p>
+            `
+        },
+        aviso: {
+            titulo: "Aviso Legal",
+            html: `
+                <p><strong>1. Titularidad:</strong> El sitio web <strong>Libertudemi</strong> es una plataforma de educación online dedicada a la enseñanza de habilidades de alto valor.</p>
+                <p><strong>2. Propiedad Intelectual:</strong> Todos los logotipos, textos, diseños, gráficos y contenidos audiovisuales presentes en esta web están protegidos por las leyes de propiedad intelectual y pertenecen a Libertademi o a sus respectivos instructores.</p>
+                <p><strong>3. Responsabilidad:</strong> Libertademi no se hace mal uso de la información práctica impartida en los cursos, siendo responsabilidad exclusiva del estudiante la aplicación de las estrategias financieras o profesionales.</p>
+            `
+        },
+        contacto: {
+            titulo: "Contacto y Soporte",
+            html: `
+                <p>¿Tienes dudas, necesitas soporte técnico o requieres asistencia con tu inscripción en <strong>Libertudemi</strong>?</p>
+                <p>Puedes comunicarte con nuestro equipo de atención al estudiante a través de los siguientes canales:</p>
+                <ul>
+                    <li><strong>Correo electrónico:</strong> soporte@libertudemi.com</li>
+                    <li><strong>Atención por WhatsApp:</strong> +58 412-1234567</li>
+                    <li><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a 6:00 PM.</li>
+                </ul>
+            `
+        }
+    };
+
+    const abrirLegal = (tipo) => {
+        const datos = contenidoLegal[tipo];
+        if (datos) {
+            legalTitle.textContent = datos.titulo;
+            legalBody.innerHTML = datos.html;
+            legalModal.classList.add("active");
+        }
+    };
+
+    if (linkTerminos) linkTerminos.addEventListener("click", (e) => { e.preventDefault(); abrirLegal("terminos"); });
+    if (linkPrivacidad) linkPrivacidad.addEventListener("click", (e) => { e.preventDefault(); abrirLegal("privacidad"); });
+    if (linkAviso) linkAviso.addEventListener("click", (e) => { e.preventDefault(); abrirLegal("aviso"); });
+    if (linkContacto) linkContacto.addEventListener("click", (e) => { e.preventDefault(); abrirLegal("contacto"); });
+
+    if (legalClose) {
+        legalClose.addEventListener("click", () => legalModal.classList.remove("active"));
+        if (legalModal) {
+            legalModal.addEventListener("click", (e) => { if (e.target === legalModal) legalModal.classList.remove("active"); });
+        }
+    }
+
 });
