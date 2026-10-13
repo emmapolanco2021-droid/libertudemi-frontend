@@ -363,95 +363,37 @@ footer {
 }
 
 /* --- Modales --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(11, 15, 25, 0.85);
+/* (Mantén todos tus estilos anteriores y añade o reemplaza esta parte de los modales legales) */
+
+.legal-box {
+    max-width: 600px;
+    max-height: 80vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    flex-direction: column;
 }
 
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background-color: var(--card-bg);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 35px;
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    transform: translateY(20px);
-    transition: transform 0.3s;
-}
-
-.modal-overlay.active .modal-content {
-    transform: translateY(0);
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
+.legal-text-container {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 10px;
+    margin-top: 15px;
     color: var(--text-muted);
-    font-size: 2rem;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.modal-close:hover {
-    color: var(--accent);
-}
-
-.modal-content h2 {
-    color: var(--accent);
-    margin-top: 0;
-    font-size: 1.8rem;
-}
-
-.modal-text {
-    color: var(--text-muted);
+    font-size: 0.95rem;
     line-height: 1.6;
 }
 
-.modal-info-box {
-    background-color: #0b0f19;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #1e293b;
+.legal-text-container p {
+    margin-bottom: 15px;
 }
 
-.modal-info-box p {
+.legal-text-container ul {
     margin: 10px 0;
-    color: var(--text-main);
-    font-size: 0.95rem;
-    line-height: 1.5;
+    padding-left: 20px;
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 25px;
-    border-top: 1px solid #1e293b;
-    padding-top: 20px;
+.legal-text-container li {
+    margin-bottom: 8px;
 }
-
 .auth-box {
     max-width: 400px;
 }
