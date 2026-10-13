@@ -19,20 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let cursoActualSeleccionado = "";
     let precioActualSeleccionado = "";
 
-    // --- Interactividad Inteligente por Tarjeta ---
+    // --- Interactividad por Tarjeta ---
     tarjetas.forEach(tarjeta => {
         const imgContainer = tarjeta.querySelector(".course-img-container");
         const textClickable = tarjeta.querySelector(".course-text-clickable");
         const btnInscribir = tarjeta.querySelector(".btn-inscribir");
 
-        // 1. Clic en la Imagen -> Abre imagen ampliada
         imgContainer.addEventListener("click", () => {
             const imgElement = imgContainer.querySelector("img");
             modalImgLarge.src = imgElement.src;
             modalImg.classList.add("active");
         });
 
-        // 2. Clic en el Texto -> Abre especificaciones del curso
         textClickable.addEventListener("click", () => {
             modalTitle.textContent = tarjeta.getAttribute("data-curso");
             modalDesc.textContent = tarjeta.getAttribute("data-descripcion");
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
             modalSpecs.classList.add("active");
         });
 
-        // 3. Clic en el Botón Inscribir -> Redirige a WhatsApp
         btnInscribir.addEventListener("click", () => {
             const nombreCurso = tarjeta.getAttribute("data-curso");
             const precioCurso = tarjeta.getAttribute("data-precio");
@@ -54,33 +51,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Función para redactar y abrir WhatsApp
     const procesarInscripcionWhatsApp = (nombreCurso, precioCurso) => {
-        const numeroWhatsApp = "584121234567"; // <-- REEMPLAZA ESTE NÚMERO CON TU WHATSAPP REAL
+        const numeroWhatsApp = "584121234567"; // Cambia por tu número real de WhatsApp
         const mensaje = `¡Hola! 👋 Me interesa inscribirme en el curso *${nombreCurso}* por ${precioCurso} en Libertademi. ¿Me ayudan con los datos de pago por favor?`;
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
         window.open(urlWhatsApp, "_blank");
     };
 
-    // Funciones para cerrar todos los modales
     const cerrarModales = () => {
         modalSpecs.classList.remove("active");
         modalImg.classList.remove("active");
     };
 
-    modalBtnInscribir.addEventListener("click", () => {
-        procesarInscripcionWhatsApp(cursoActualSeleccionado, precioActualSeleccionado);
-        cerrarModales();
-    });
+    if (modalBtnInscribir) {
+        modalBtnInscribir.addEventListener("click", () => {
+            procesarInscripcionWhatsApp(cursoActualSeleccionado, precioActualSeleccionado);
+            cerrarModales();
+        });
+    }
 
-    modalCloseSpecs.addEventListener("click", cerrarModales);
-    modalSpecs.addEventListener("click", (e) => { if (e.target === modalSpecs) cerrarModales(); });
+    if (modalCloseSpecs) modalCloseSpecs.addEventListener("click", cerrarModales);
+    if (modalSpecs) modalSpecs.addEventListener("click", (e) => { if (e.target === modalSpecs) cerrarModales(); });
 
-    modalCloseImg.addEventListener("click", cerrarModales);
-    modalImg.addEventListener("click", (e) => { if (e.target === modalImg) cerrarModales(); });
+    if (modalCloseImg) modalCloseImg.addEventListener("click", cerrarModales);
+    if (modalImg) modalImg.addEventListener("click", (e) => { if (e.target === modalImg) cerrarModales(); });
 
 
-    // --- Lógica del Modal Flotante de Registro y Servidor Python ---
+    // --- Lógica del Modal Flotante de Registro y Validaciones ---
     const authModal = document.getElementById("auth-modal");
     const btnLoginNav = document.getElementById("btn-login-nav");
     const authClose = document.getElementById("auth-close");
@@ -90,16 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnLoginNav) {
         btnLoginNav.addEventListener("click", (e) => {
             e.preventDefault();
-            authModal.classList.add("active");
+            if (authModal) authModal.classList.add("active");
         });
     }
 
     if (authClose) {
         authClose.addEventListener("click", () => authModal.classList.remove("active"));
-        authModal.addEventListener("click", (e) => { if (e.target === authModal) authModal.classList.remove("active"); });
+        if (authModal) {
+            authModal.addEventListener("click", (e) => { if (e.target === authModal) authModal.classList.remove("active"); });
+        }
     }
 
-// Envío del formulario al Backend de Python (Flask) con validaciones
     if (formRegistro) {
         formRegistro.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -111,14 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             mensajeRespuesta.style.display = "block";
 
-            // 1. Validar que los correos coincidan
+            // 1. Validar coincidencia de correos
             if (correo !== correoConfirm) {
                 mensajeRespuesta.style.color = "#ef4444";
                 mensajeRespuesta.textContent = "❌ Los correos electrónicos no coinciden.";
                 return;
             }
 
-            // 2. Validar seguridad de la contraseña (Mínimo 8 caracteres, mayúscula, minúscula, número y carácter especial)
+            // 2. Validar seguridad estricta de la contraseña en frontend
             const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
             if (!regexPassword.test(password)) {
                 mensajeRespuesta.style.color = "#ef4444";
@@ -144,8 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => {
                         authModal.classList.remove("active");
                         mensajeRespuesta.textContent = "";
+                        mensajeRespuesta.style.display = "none";
                         formRegistro.reset();
-                    }, 3000);
+                    }, 3500);
                 } else {
                     mensajeRespuesta.style.color = "#ef4444";
                     mensajeRespuesta.textContent = resultado.mensaje || "Hubo un problema al registrarse.";
@@ -158,3 +157,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+});
