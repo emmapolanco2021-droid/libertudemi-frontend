@@ -72,7 +72,7 @@
         
         <div class="courses-grid">
             
-            <!-- Tarjeta 1: Crecimiento Personal (crecimiento.png) -->
+            <!-- Tarjeta 1: Crecimiento Personal -->
             <div class="course-card animate-on-scroll" 
                  data-curso="Crecimiento Personal y Mentalidad" 
                  data-precio="$49 USD"
@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 2: Finanzas Personales (finanzas.png) -->
+            <!-- Tarjeta 2: Finanzas Personales -->
             <div class="course-card animate-on-scroll" 
                  data-curso="Finanzas Personales e Inversiones" 
                  data-precio="$79 USD"
@@ -118,7 +118,7 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 3: Marketing Digital (marketing.jpeg) -->
+            <!-- Tarjeta 3: Marketing Digital -->
             <div class="course-card animate-on-scroll" 
                  data-curso="Marketing Digital y Redes Sociales" 
                  data-precio="$59 USD"
@@ -141,7 +141,7 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 4: Fotografía Profesional (fotografia.png) -->
+            <!-- Tarjeta 4: Fotografía Profesional -->
             <div class="course-card animate-on-scroll" 
                  data-curso="Fotografía Profesional y Edición" 
                  data-precio="$69 USD"
@@ -167,7 +167,7 @@
         </div>
     </section>
 
-    <!-- Pie de Página (Footer) -->
+    <!-- Pie de Página (Footer) con enlaces activos para los modales legales -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -176,16 +176,16 @@
             </div>
             <p class="footer-desc">Transformando el futuro a través de la educación online en habilidades de alto valor.</p>
             <div class="footer-links">
-                <a href="#">Términos y Condiciones</a>
-                <a href="#">Política de Privacidad</a>
-                <a href="#">Aviso Legal</a>
-                <a href="#">Contacto</a>
+                <a href="#" id="link-terminos">Términos y Condiciones</a>
+                <a href="#" id="link-privacidad">Política de Privacidad</a>
+                <a href="#" id="link-aviso">Aviso Legal</a>
+                <a href="#" id="link-contacto">Contacto</a>
             </div>
             <p class="footer-copy">&copy; 2026 Libertademi. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Modales -->
+    <!-- Modales de Cursos y Multimedia -->
     <div id="course-modal" class="modal-overlay">
         <div class="modal-content">
             <button id="modal-close" class="modal-close">&times;</button>
@@ -225,6 +225,17 @@
                 <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5px;">Registrarse</button>
             </form>
             <p id="mensaje-respuesta" style="text-align: center; margin-top: 15px; font-size: 0.9rem; font-weight: 500; display: none;"></p>
+        </div>
+    </div>
+
+    <!-- Modal General para Políticas Legales y Contacto -->
+    <div id="legal-modal" class="modal-overlay">
+        <div class="modal-content legal-box">
+            <button id="legal-close" class="modal-close">&times;</button>
+            <h2 id="legal-title">Título Legal</h2>
+            <div id="legal-body" class="legal-text-container">
+                <!-- El contenido se cargará dinámicamente -->
+            </div>
         </div>
     </div>
 
