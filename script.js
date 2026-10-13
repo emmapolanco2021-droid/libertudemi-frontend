@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const tarjetas = document.querySelectorAll(".course-card");
     
-    // Modales
+    // Modales de Cursos e Imagen
     const modalSpecs = document.getElementById("course-modal");
     const modalCloseSpecs = document.getElementById("modal-close");
     const modalTitle = document.getElementById("modal-title");
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let cursoActualSeleccionado = "";
     let precioActualSeleccionado = "";
 
-    // --- Interactividad por Tarjeta ---
+    // Interactividad por Tarjeta
     tarjetas.forEach(tarjeta => {
         const imgContainer = tarjeta.querySelector(".course-img-container");
         const textClickable = tarjeta.querySelector(".course-text-clickable");
@@ -52,15 +52,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const procesarInscripcionWhatsApp = (nombreCurso, precioCurso) => {
-        const numeroWhatsApp = "584123339771"; // Cambia por tu número real de WhatsApp
+        const numeroWhatsApp = "584121234567";
         const mensaje = `¡Hola! 👋 Me interesa inscribirme en el curso *${nombreCurso}* por ${precioCurso} en Libertademi. ¿Me ayudan con los datos de pago por favor?`;
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
         window.open(urlWhatsApp, "_blank");
     };
 
     const cerrarModales = () => {
-        modalSpecs.classList.remove("active");
-        modalImg.classList.remove("active");
+        if (modalSpecs) modalSpecs.classList.remove("active");
+        if (modalImg) modalImg.classList.remove("active");
     };
 
     if (modalBtnInscribir) {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modalImg) modalImg.addEventListener("click", (e) => { if (e.target === modalImg) cerrarModales(); });
 
 
-    // --- Animación al hacer Scroll (Intersection Observer) ---
+    // Animación al hacer Scroll
     const elementosAnimados = document.querySelectorAll(".animate-on-scroll");
     
     const observer = new IntersectionObserver((entries, observer) => {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elementosAnimados.forEach(el => observer.observe(el));
 
 
-    // --- Lógica del Modal Flotante de Registro y Validaciones ---
+    // Modal de Registro y Validaciones
     const authModal = document.getElementById("auth-modal");
     const btnLoginNav = document.getElementById("btn-login-nav");
     const authClose = document.getElementById("auth-close");
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // --- Lógica para los Modales Legales y de Contacto ---
+    // Modales Legales
     const legalModal = document.getElementById("legal-modal");
     const legalClose = document.getElementById("legal-close");
     const legalTitle = document.getElementById("legal-title");
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
             html: `
                 <p><strong>1. Titularidad:</strong> El sitio web <strong>Libertudemi</strong> es una plataforma de educación online dedicada a la enseñanza de habilidades de alto valor.</p>
                 <p><strong>2. Propiedad Intelectual:</strong> Todos los logotipos, textos, diseños, gráficos y contenidos audiovisuales presentes en esta web están protegidos por las leyes de propiedad intelectual y pertenecen a Libertademi o a sus respectivos instructores.</p>
-                <p><strong>3. Responsabilidad:</strong> Libertademi no se hace mal uso de la información práctica impartida en los cursos, siendo responsabilidad exclusiva del estudiante la aplicación de las estrategias financieras o profesionales.</p>
+                <p><strong>3. Responsabilidad:</strong> Libertademi no se hace responsable por el mal uso de la información práctica impartida en los cursos, siendo responsabilidad exclusiva del estudiante la aplicación de las estrategias financieras o profesionales.</p>
             `
         },
         contacto: {
