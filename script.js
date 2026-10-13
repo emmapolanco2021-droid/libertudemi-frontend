@@ -99,19 +99,37 @@ document.addEventListener("DOMContentLoaded", () => {
         authModal.addEventListener("click", (e) => { if (e.target === authModal) authModal.classList.remove("active"); });
     }
 
+// Envío del formulario al Backend de Python (Flask) con validaciones
     if (formRegistro) {
         formRegistro.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             const nombre = document.getElementById("reg-nombre").value;
             const correo = document.getElementById("reg-correo").value;
+            const correoConfirm = document.getElementById("reg-correo-confirm").value;
             const password = document.getElementById("reg-password").value;
+
+            mensajeRespuesta.style.display = "block";
+
+            // 1. Validar que los correos coincidan
+            if (correo !== correoConfirm) {
+                mensajeRespuesta.style.color = "#ef4444";
+                mensajeRespuesta.textContent = "❌ Los correos electrónicos no coinciden.";
+                return;
+            }
+
+            // 2. Validar seguridad de la contraseña (Mínimo 8 caracteres, mayúscula, minúscula, número y carácter especial)
+            const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            if (!regexPassword.test(password)) {
+                mensajeRespuesta.style.color = "#ef4444";
+                mensajeRespuesta.textContent = "❌ La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.";
+                return;
+            }
 
             mensajeRespuesta.style.color = "#f59e0b";
             mensajeRespuesta.textContent = "Conectando con el servidor...";
 
-           try {
-               
+            try {
                 const respuesta = await fetch("https://libertudemi-backend.onrender.com/api/registro", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -119,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 const resultado = await respuesta.json();
-               
 
                 if (resultado.exito) {
                     mensajeRespuesta.style.color = "#10b981";
@@ -128,10 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         authModal.classList.remove("active");
                         mensajeRespuesta.textContent = "";
                         formRegistro.reset();
-                    }, 2000);
+                    }, 3000);
                 } else {
                     mensajeRespuesta.style.color = "#ef4444";
-                    mensajeRespuesta.textContent = "Hubo un problema al registrarse.";
+                    mensajeRespuesta.textContent = resultado.mensaje || "Hubo un problema al registrarse.";
                 }
 
             } catch (error) {
@@ -141,5 +158,3 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-});
