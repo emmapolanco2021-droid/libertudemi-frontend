@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const procesarInscripcionWhatsApp = (nombreCurso, precioCurso) => {
-        const numeroWhatsApp = "584121234567";
+        const numeroWhatsApp = "584123339771";
         const mensaje = `¡Hola! 👋 Me interesa inscribirme en el curso *${nombreCurso}* por ${precioCurso} en Libertademi. ¿Me ayudan con los datos de pago por favor?`;
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
         window.open(urlWhatsApp, "_blank");
