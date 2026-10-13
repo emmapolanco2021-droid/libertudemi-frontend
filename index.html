@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libertudemi - Academia Online</title>
+    
+    <!-- Favicon de la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="Libertudemi Logo" class="logo-img">
+            <span class="logo-text">Libertudemi</span>
+        </a>
+        <nav>
+            <a href="#cursos">Cursos</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#" id="btn-login-nav">Iniciar Sesión / Registro</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Potencia tu vida, tus finanzas y tu creatividad</h1>
+        <p>Aprende de expertos en crecimiento personal, finanzas inteligentes, marketing digital y fotografía profesional para transformar tu futuro.</p>
+        <a href="#cursos" class="btn-primary">Explorar Cursos</a>
+    </section>
+
+    <section id="cursos" class="courses-section">
+        <h2>Nuestros Programas Destacados</h2>
+        <div class="courses-grid">
+            
+            <!-- Tarjeta 1: Crecimiento Personal -->
+            <div class="course-card" 
+                 data-curso="Crecimiento Personal y Mentalidad" 
+                 data-precio="$49 USD"
+                 data-duracion="4 semanas (8 clases)"
+                 data-descripcion="Domina la gestión del tiempo, hábitos de alto rendimiento y la mentalidad de éxito para alcanzar tus metas."
+                 data-temario="Gestión del tiempo avanzada, desarrollo de planes específicos para el cumplimiento de objetivos y metas, diseño de estrategias en base a tus fortalezas y oportunidades.">
+                
+                <div class="course-img-container">
+                    <img src="crecimiento.png" alt="Crecimiento Personal" class="course-img">
+                </div>
+                
+                <div class="course-text-clickable">
+                    <h3>🧠 Crecimiento Personal</h3>
+                    <p>Domina la gestión del tiempo, hábitos de alto rendimiento y la mentalidad de éxito para alcanzar tus metas.</p>
+                </div>
+
+                <div class="card-footer">
+                    <span class="course-price">$49 USD</span>
+                    <button class="btn-inscribir">Inscribirme</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Finanzas Personales -->
+            <div class="course-card" 
+                 data-curso="Finanzas Personales e Inversiones" 
+                 data-precio="$79 USD"
+                 data-duracion="6 semanas (12 clases)"
+                 data-descripcion="Aprende a salir de deudas, crear presupuestos efectivos y dar tus primeros pasos en el mundo de la inversión."
+                 data-temario="Creación de presupuestos inteligentes, plan de libertad financiera, eliminación de deudas de alto interés y fundamentos de inversión en bolsa y activos digitales.">
+                
+                <div class="course-img-container">
+                    <img src="finanzas.png" alt="Finanzas Personales" class="course-img">
+                </div>
+                
+                <div class="course-text-clickable">
+                    <h3>💰 Finanzas Personales</h3>
+                    <p>Aprende a salir de deudas, crear presupuestos efectivos y dar tus primeros pasos en el mundo de la inversión.</p>
+                </div>
+
+                <div class="card-footer">
+                    <span class="course-price">$79 USD</span>
+                    <button class="btn-inscribir">Inscribirme</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Marketing Digital -->
+            <div class="course-card" 
+                 data-curso="Marketing Digital y Redes Sociales" 
+                 data-precio="$59 USD"
+                 data-duracion="5 semanas (10 clases)"
+                 data-descripcion="Crea estrategias virales, domina las redes sociales y aprende a vender productos o servicios en internet."
+                 data-temario="Embudos de conversión, creación de contenido de alto impacto para Instagram y TikTok, pauta publicitaria desde cero y estrategias de venta orgánica.">
+                
+                <div class="course-img-container">
+                    <img src="marketing.jpeg" alt="Marketing Digital" class="course-img">
+                </div>
+                
+                <div class="course-text-clickable">
+                    <h3>📱 Marketing Digital</h3>
+                    <p>Crea estrategias virales, domina las redes sociales y aprende a vender productos o servicios en internet.</p>
+                </div>
+
+                <div class="card-footer">
+                    <span class="course-price">$59 USD</span>
+                    <button class="btn-inscribir">Inscribirme</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Fotografía Profesional -->
+            <div class="course-card" 
+                 data-curso="Fotografía Profesional y Edición" 
+                 data-precio="$69 USD"
+                 data-duracion="4 semanas (8 clases)"
+                 data-descripcion="Domina el manejo de cámaras y luces, y aprende a editar imágenes impactantes para proyectos o marcas."
+                 data-temario="Manejo de cámaras en modo manual, iluminación de estudio y natural, composición visual y edición profesional de color con Lightroom y Photoshop.">
+                
+                <div class="course-img-container">
+                    <img src="fotografia.png" alt="Fotografía Profesional" class="course-img">
+                </div>
+                
+                <div class="course-text-clickable">
+                    <h3>📷 Fotografía Profesional</h3>
+                    <p>Domina el manejo de cámaras y luces, y aprende a editar imágenes impactantes para proyectos o marcas.</p>
+                </div>
+
+                <div class="card-footer">
+                    <span class="course-price">$69 USD</span>
+                    <button class="btn-inscribir">Inscribirme</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal de Detalles del Curso (Especificaciones) -->
+    <div id="course-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <h2 id="modal-title">Título del Curso</h2>
+            <p id="modal-desc" class="modal-text"></p>
+            
+            <div class="modal-info-box">
+                <p><strong>⏱️ Duración:</strong> <span id="modal-duration"></span></p>
+                <p><strong>🎯 Lo que aprenderás:</strong> <span id="modal-syllabus"></span></p>
+            </div>
+
+            <div class="modal-footer">
+                <span id="modal-price" class="course-price"></span>
+                <button id="modal-btn-inscribir" class="btn-primary">Inscribirme Ahora</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver la Imagen en Grande -->
+    <div id="img-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="img-modal-close" class="modal-close">&times;</button>
+            <img id="modal-img-large" src="" alt="Vista ampliada" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; border-radius: 8px;">
+        </div>
+    </div>
+
+    <!-- Modal Flotante de Registro Propio -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content auth-box">
+            <button id="auth-close" class="modal-close">&times;</button>
+            <h2>Únete a Libertademi</h2>
+            <p class="modal-text">Crea tu cuenta con tu correo para acceder a la academia.</p>
+            
+            <form id="form-registro" class="auth-form" style="margin-top: 20px;">
+                <input type="text" id="reg-nombre" placeholder="Nombre completo" required class="auth-input">
+                <input type="email" id="reg-correo" placeholder="Correo electrónico" required class="auth-input">
+                <input type="password" id="reg-password" placeholder="Contraseña" required class="auth-input">
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5px;">Registrarse</button>
+            </form>
+            <p id="mensaje-respuesta" style="text-align: center; margin-top: 15px; font-size: 0.9rem; font-weight: 500;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

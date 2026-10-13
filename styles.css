@@ -1,0 +1,323 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #131b2e;
+    --accent: #f59e0b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, .logo-text, .course-price, .modal-content h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #0b0f19;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+    background-color: #fbbf24;
+}
+
+.courses-section {
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.courses-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* Estilos de las tarjetas de cursos con imágenes */
+.course-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.course-img-container {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    background-color: #1e293b;
+    cursor: pointer;
+}
+
+.course-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.course-img-container:hover .course-img {
+    transform: scale(1.05);
+}
+
+.course-text-clickable {
+    padding: 20px 25px 0 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.course-text-clickable:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.course-text-clickable h3 {
+    margin: 0 0 10px 0;
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.course-text-clickable p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 25px 25px 25px;
+    border-top: 1px solid #1e293b;
+    padding-top: 15px;
+}
+
+.course-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.btn-inscribir {
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-inscribir:hover {
+    background-color: var(--accent);
+    color: #0b0f19;
+}
+
+/* Modales generales */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 15, 25, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 35px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--accent);
+}
+
+.modal-content h2 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.modal-text {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.modal-info-box {
+    background-color: #0b0f19;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #1e293b;
+}
+
+.modal-info-box p {
+    margin: 10px 0;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+}
+
+/* Modal de Autenticación */
+.auth-box {
+    max-width: 400px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background-color: #0b0f19;
+    color: #f8fafc;
+    font-size: 0.95rem;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
