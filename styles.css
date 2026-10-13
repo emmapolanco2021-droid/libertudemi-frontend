@@ -116,7 +116,6 @@ nav a:hover {
     gap: 30px;
 }
 
-/* Estilos de las tarjetas de cursos con imágenes */
 .course-card {
     background-color: var(--card-bg);
     border-radius: 12px;
@@ -207,7 +206,6 @@ nav a:hover {
     color: #0b0f19;
 }
 
-/* Modales generales */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -297,7 +295,6 @@ nav a:hover {
     padding-top: 20px;
 }
 
-/* Modal de Autenticación */
 .auth-box {
     max-width: 400px;
 }
