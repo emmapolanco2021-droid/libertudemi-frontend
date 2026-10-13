@@ -110,14 +110,16 @@ document.addEventListener("DOMContentLoaded", () => {
             mensajeRespuesta.style.color = "#f59e0b";
             mensajeRespuesta.textContent = "Conectando con el servidor...";
 
-            try {
-              const respuesta = await fetch("https://tu-backend-en-render.onrender.com/api/registro", {
+           try {
+               
+                const respuesta = await fetch("https://libertudemi-backend.onrender.com/api/registro", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ nombre, correo, password })
                 });
 
                 const resultado = await respuesta.json();
+               
 
                 if (resultado.exito) {
                     mensajeRespuesta.style.color = "#10b981";
