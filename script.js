@@ -77,6 +77,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modalImg) modalImg.addEventListener("click", (e) => { if (e.target === modalImg) cerrarModales(); });
 
 
+    // --- Animación al hacer Scroll (Intersection Observer) ---
+    const elementosAnimados = document.querySelectorAll(".animate-on-scroll");
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elementosAnimados.forEach(el => observer.observe(el));
+
+
     // --- Lógica del Modal Flotante de Registro y Validaciones ---
     const authModal = document.getElementById("auth-modal");
     const btnLoginNav = document.getElementById("btn-login-nav");
@@ -109,14 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             mensajeRespuesta.style.display = "block";
 
-            // 1. Validar coincidencia de correos
             if (correo !== correoConfirm) {
                 mensajeRespuesta.style.color = "#ef4444";
                 mensajeRespuesta.textContent = "❌ Los correos electrónicos no coinciden.";
                 return;
             }
 
-            // 2. Validar seguridad estricta de la contraseña en frontend
             const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
             if (!regexPassword.test(password)) {
                 mensajeRespuesta.style.color = "#ef4444";
